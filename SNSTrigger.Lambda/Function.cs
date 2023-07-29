@@ -37,8 +37,10 @@ public class Function
 
     private async Task ProcessRecordAsync(SNSEvent.SNSRecord record, ILambdaContext context)
     {
-        context.Logger.LogInformation($"Processed record {record.Sns.Message}");
-
+        string message = record.Sns.Message;
+        context.Logger.LogInformation($"Read Message:  {message}");
+        if(message.Contains("Error"))
+            throw new Exception(message);
         // TODO: Do interesting work based on the new message
         await Task.CompletedTask;
     }

@@ -15,6 +15,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SNSTrigger.Lambda", "SNSTri
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnsPublisher", "SnsPublisher\SnsPublisher.csproj", "{F32C5F5F-C24A-41DD-8A1D-E1CD4C9B6344}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{5C835BEB-20C2-4924-9721-269BC7535000}"
+	ProjectSection(SolutionItems) = preProject
+		Images\dlq permissions.jpg = Images\dlq permissions.jpg
+		Images\DLQ.jpg = Images\DLQ.jpg
+		Images\DLQ2.jpg = Images\DLQ2.jpg
+		Images\InternalEventQueue.jpg = Images\InternalEventQueue.jpg
+		Images\LambdaConcurrency.jpg = Images\LambdaConcurrency.jpg
+		Images\LambdaConcurrency2.jpg = Images\LambdaConcurrency2.jpg
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,6 +56,7 @@ Global
 		{8B8D99A9-D683-4E78-9F24-AB559545602B} = {4D5D1638-BD2C-40A3-9992-62D38EBF1BC2}
 		{564CF7F4-E7BD-464C-BCB6-49D89812CE32} = {2C58F5E3-A2FF-42F6-83C2-ED0CBC45455B}
 		{F32C5F5F-C24A-41DD-8A1D-E1CD4C9B6344} = {2C58F5E3-A2FF-42F6-83C2-ED0CBC45455B}
+		{5C835BEB-20C2-4924-9721-269BC7535000} = {2C58F5E3-A2FF-42F6-83C2-ED0CBC45455B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {71F1329A-7508-4FA9-B278-5359F7C15325}
