@@ -36,6 +36,9 @@ on the subscription itself and push those messages to a SQS queue.
 
 Go to the subscription and click on edit
 
-<img src='../Images/LambdaConcurrency2.jpg'>
+<img src='../Images/dqlsub1.jpg'>
+<img src='../Images/dqlsub2.jpg'>
 
+While Configuring the SQS DLQ, we need to grant the SNS topic write access to the SQS queue. When we edit the subscription a notification shows up. Navigate to that link and follow the instructions to add the required permissions.
+<img src='../Images/dlq permissions.jpg'>
 
