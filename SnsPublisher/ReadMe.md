@@ -19,20 +19,23 @@ response without additional information (ex: sns,sqs). Lambda manages the functi
 
 it retries 2 times and then discards the message, which is then lost. </p>
 
-4. We can setup a deadletter queue on the lambda function and everytime the retries from the internal queue are 
+<h3>Setup a DLQ</h3>
+We can setup a deadletter queue on the lambda function and everytime the retries from the internal queue are 
 unsuccessful, we can move those messages to a SQS queue.
 
-Image
+<img src='../Images/DLQ.jpg'>
+
 
 5. To configure the max concurrent instances of a Lambda function. Go to
 
-Image
+<img src='../Images/LambdaConcurrency.jpg'>
+<img src='../Images/LambdaConcurrency2.jpg'>
 
 6. If we publish to SNS and the subscriber doesnt exist(if we delete the lambda), then we can setup a DQL 
 on the subscription itself and push those messages to a SQS queue.
 
 Go to the subscription and click on edit
 
-Image
+<img src='../Images/LambdaConcurrency2.jpg'>
 
 
