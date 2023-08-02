@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SNSLambda", "SNSLambda", "{
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SNSTrigger.Lambda", "SNSTrigger.Lambda\SNSTrigger.Lambda.csproj", "{564CF7F4-E7BD-464C-BCB6-49D89812CE32}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnsPublisher", "SnsPublisher\SnsPublisher.csproj", "{F32C5F5F-C24A-41DD-8A1D-E1CD4C9B6344}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SnsPublisher", "SnsPublisher\SnsPublisher.csproj", "{F32C5F5F-C24A-41DD-8A1D-E1CD4C9B6344}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{5C835BEB-20C2-4924-9721-269BC7535000}"
 	ProjectSection(SolutionItems) = preProject
@@ -26,6 +26,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{5C835B
 		Images\LambdaConcurrency.jpg = Images\LambdaConcurrency.jpg
 		Images\LambdaConcurrency2.jpg = Images\LambdaConcurrency2.jpg
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQSTriggered", "SQSTriggered", "{7C5822E0-F782-496B-869C-04B32D487C41}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SqsTriggeredLambda", "SQSTriggered\SqsTriggeredLambda\SqsTriggeredLambda.csproj", "{A8C18C80-2472-4CA0-86CB-85F64C552B88}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +53,10 @@ Global
 		{F32C5F5F-C24A-41DD-8A1D-E1CD4C9B6344}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F32C5F5F-C24A-41DD-8A1D-E1CD4C9B6344}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F32C5F5F-C24A-41DD-8A1D-E1CD4C9B6344}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8C18C80-2472-4CA0-86CB-85F64C552B88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8C18C80-2472-4CA0-86CB-85F64C552B88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8C18C80-2472-4CA0-86CB-85F64C552B88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8C18C80-2472-4CA0-86CB-85F64C552B88}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +67,7 @@ Global
 		{564CF7F4-E7BD-464C-BCB6-49D89812CE32} = {2C58F5E3-A2FF-42F6-83C2-ED0CBC45455B}
 		{F32C5F5F-C24A-41DD-8A1D-E1CD4C9B6344} = {2C58F5E3-A2FF-42F6-83C2-ED0CBC45455B}
 		{5C835BEB-20C2-4924-9721-269BC7535000} = {2C58F5E3-A2FF-42F6-83C2-ED0CBC45455B}
+		{A8C18C80-2472-4CA0-86CB-85F64C552B88} = {7C5822E0-F782-496B-869C-04B32D487C41}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {71F1329A-7508-4FA9-B278-5359F7C15325}
