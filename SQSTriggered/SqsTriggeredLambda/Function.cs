@@ -27,12 +27,33 @@ public class Function
     /// <param name="evnt"></param>
     /// <param name="context"></param>
     /// <returns></returns>
-    public async Task FunctionHandler(SQSEvent evnt, ILambdaContext context)
+    public async Task<SQSBatchResponse> FunctionHandler(SQSEvent evnt, ILambdaContext context)
     {
-        foreach(var message in evnt.Records)
+        // every time a message in a batch fails, the entire batch will be resent 
+        // To avoid this scenario, we need to let the lambda know about the particular message
+        // in the batch that failed, this is done using the SQSBatchResponse class
+        SQSBatchResponse response = new SQSBatchResponse
         {
-            await ProcessMessageAsync(message, context);
+            BatchItemFailures = new List<SQSBatchResponse.BatchItemFailure>()
+        };
+        context.Logger.LogInformation(evnt.Records.Count.ToString());
+        foreach (var message in evnt.Records)
+        {
+            try
+            {
+                await ProcessMessageAsync(message, context);
+            }
+            catch (Exception ex)
+            {
+                context.Logger.LogError(ex.Message);
+                // the lambda will retry this particular message and not the entire batch
+                response.BatchItemFailures.Add(new SQSBatchResponse.BatchItemFailure()
+                {
+                    ItemIdentifier= message.MessageId
+                });
+            }
         }
+        return response;
     }
 
     private async Task ProcessMessageAsync(SQSEvent.SQSMessage message, ILambdaContext context)
