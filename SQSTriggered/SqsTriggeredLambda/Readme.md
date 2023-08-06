@@ -1,51 +1,59 @@
 # AWS Lambda Simple SQS Function Project
 
-This starter project consists of:
-* Function.cs - class file containing a class with a single function handler method
-* aws-lambda-tools-defaults.json - default argument settings for use with Visual Studio and command line deployment tools for AWS
+Amazon SQS offers hosted queues that integrate and decouple distributed software systems and components. Amazon SQS provides a generic web services API that you can access using any programming language supported by AWS SDK. Messages in the queue are typically processed by a single subscriber. Amazon SQS and Amazon SNS are often used together to create a fanout messaging application.
 
-You may also have a test project depending on the options selected.
+SQS is a pull-based delivery system, which means that the consumer of the messages is responsible for pulling messages from the queue and processing them. In contrast, SNS is a push-based delivery system, which means that the service automatically pushes messages to the subscribed endpoints.
 
-The generated function handler responds to events on an Amazon SQS queue.
+SQS is ideal for processing large numbers of messages in a reliable and scalable manner, making it a good choice for background tasks, batch jobs, and other types of workloads that can be parallelized. SNS, on the other hand, is better suited for time-critical, high-throughput workloads that require immediate processing of messages, such as mobile push notifications or real-time alerts.
 
-After deploying your function you must configure an Amazon SQS queue as an event source to trigger your Lambda function.
+One common use case for SQS and SNS is to build a serverless event-driven architecture, where events trigger the execution of code in AWS Lambda.
 
-## Here are some steps to follow from Visual Studio:
+For example, you can use SQS to buffer incoming events, and then use SNS to push those events to one or more Lambda functions for processing. This allows you to scale your application horizontally by adding more Lambda functions, without having to worry about managing the underlying infrastructure.
 
-To deploy your function to AWS Lambda, right click the project in Solution Explorer and select *Publish to AWS Lambda*.
+## Advantages of having SNS => SQS => Lambda
 
-To view your deployed function open its Function View window by double-clicking the function name shown beneath the AWS Lambda node in the AWS Explorer tree.
+1. SNS delivers the messages asynchronously, So the lambda has to take care of the failures and retries. It is managed using the InternalEventQueue.
+2.  If we delete the Lambda then the messages will be lost after a few retries. So we add SQS as an intermediate, which acts as a buffer and the subscriber can read messages from it when it is ready again.
+3.  We can deliver messages in batches to the lambda when using an SQS queue
+4.  We can control the concurrency in the lambda and set a max number of instances as well.
 
-To perform testing against your deployed function use the Test Invoke tab in the opened Function View window.
 
-To configure event sources for your deployed function use the Event Sources tab in the opened Function View window.
 
-To update the runtime configuration of your deployed function use the Configuration tab in the opened Function View window.
 
-To view execution logs of invocations of your function use the Logs tab in the opened Function View window.
 
-## Here are some steps to follow to get started from the command line:
 
-Once you have edited your template and code you can deploy your application using the [Amazon.Lambda.Tools Global Tool](https://github.com/aws/aws-extensions-for-dotnet-cli#aws-lambda-amazonlambdatools) from the command line.
 
-Install Amazon.Lambda.Tools Global Tools if not already installed.
-```
-    dotnet tool install -g Amazon.Lambda.Tools
-```
 
-If already installed check if new version is available.
-```
-    dotnet tool update -g Amazon.Lambda.Tools
-```
 
-Execute unit tests
-```
-    cd "SqsTriggeredLambda/test/SqsTriggeredLambda.Tests"
-    dotnet test
-```
 
-Deploy function to AWS Lambda
-```
-    cd "SqsTriggeredLambda/src/SqsTriggeredLambda"
-    dotnet lambda deploy-function
-```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## References
+* Basic Architecture (https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-basic-architecture.html)
+* Rahul Nath's Blod - https://www.rahulpnath.com/blog/amazon-sns-to-lambda-or-sns-sqs-lambda-dotnet/#disadvantages-of-directly-processing-messages-from-sns-lambda
